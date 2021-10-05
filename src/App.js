@@ -37,7 +37,7 @@ class App extends Component {
 
         this.handleTeamNameChange = this.handleTeamNameChange.bind(this);
 
-        this.detuctQuestion = this.detuctQuestion.bind(this);
+        this.deductQuestion = this.deductQuestion.bind(this);
 
         this.addQuestion = this.addQuestion.bind(this);
 
@@ -78,7 +78,7 @@ class App extends Component {
         })
     }
 
-    detuctQuestion(index) {
+    deductQuestion(index) {
         return (() => {
             this.setState(state => {
                 let teams = state.teams;
@@ -197,7 +197,7 @@ class App extends Component {
                                         <span className="questions">
                                             {team.qLeft} left
                                             <span className="question-buttons">
-                                                <Button onClick={this.detuctQuestion(index)}>-</Button>
+                                                <Button onClick={this.deductQuestion(index)}>-</Button>
                                                 <Button onClick={this.addQuestion(index)}>+</Button>
                                             </span>
                                         </span>
