@@ -188,25 +188,26 @@ class App extends Component {
                     }
 
                     {
-                        this.state.locked && [...this.state.teams.filter(team => team.teamName.trim().length > 0).map(
+                        this.state.locked && [...this.state.teams.map(
                             (team, index) => {
-                                return (
-                                    <Card key={index}>
-                                        <span>{team.teamName}</span>
-                                        <span className="questions">
-                                            {team.qLeft} left
-                                            <span className="question-buttons">
-                                                <Button onClick={this.deductQuestion(index)}>-</Button>
-                                                <Button onClick={this.addQuestion(index)}>+</Button>
+                                if (team.teamName.trim().length > 0)
+                                    return (
+                                        <Card key={index}>
+                                            <span>{team.teamName}</span>
+                                            <span className="questions">
+                                                {team.qLeft} left
+                                                <span className="question-buttons">
+                                                    <Button onClick={this.deductQuestion(index)}>-</Button>
+                                                    <Button onClick={this.addQuestion(index)}>+</Button>
+                                                </span>
                                             </span>
-                                        </span>
-                                        <Button onClick={this.manipulateTimer(index)}>
-                                            {team.timeLeft <= 10 && <span style={{ color: "red" }}>{team.timeLeft + "s"}</span>}
-                                            {team.timeLeft > 10 && team.timeLeft + "s"}
-                                        </Button>
-                                        <Button onClick={() => { this.resetTimer(index) }}>Reset</Button>
-                                    </Card>
-                                );
+                                            <Button onClick={this.manipulateTimer(index)}>
+                                                {team.timeLeft <= 10 && <span style={{ color: "red" }}>{team.timeLeft + "s"}</span>}
+                                                {team.timeLeft > 10 && team.timeLeft + "s"}
+                                            </Button>
+                                            <Button onClick={() => { this.resetTimer(index) }}>Reset</Button>
+                                        </Card>
+                                    );
                             }
                         ), <p style={{ textAlign: "center" }}>Words and stuff here</p>]
                     }
