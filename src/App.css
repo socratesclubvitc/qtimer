@@ -1,13 +1,30 @@
+:root {
+  --xiketic: #17111C;
+  --orange-soda: #E45C3A;
+  --sandy-brown: #F39B53;
+  --orange: #FB8500;
+  --smoky-black: #130A04;
+  --orange-foam: #F38C72;
+}
+
+body, html {
+  height: 100%;
+  background-color: var(--sandy-brown);
+  color: #130A04;
+}
+
 .card {
   padding: 1em;
   border: 1px solid black;
   box-shadow: 2px 3px 0px black;
-  margin: 0em 0em 0.5em;
+  margin: 0.75em 0em 0.75em;
   
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
   align-items: center;
+
+  background-color: var(--orange-soda);
 }
 
 .card > * {
@@ -16,7 +33,10 @@
 
 .button {
   border: 1px solid black;
+  border-radius: 0.25rem;
   box-shadow: 2px 3px 0px black;
+
+  background-color: var(--orange-foam);
   
   padding: 0.2em;
   text-align: center;
@@ -53,16 +73,25 @@ main {
   justify-content: space-around;
   align-items: stretch;
 
-  margin: 1em;
+  height: 100%;
 }
 
 section {
   display: flex; 
   flex-direction: column;
+  justify-content: center;
+
+  margin: 1em;
 }
 
 button#lock {
   position: absolute;
   top: 5px;
   left: 5px;
+}
+
+input[type="text"] {
+  border: 1px solid transparent;
+  border-radius: .25rem;
+  width: 8rem;
 }

@@ -182,7 +182,7 @@ class App extends Component {
                                     value={this.state.teams[index].teamName}
                                     onChange={this.handleTeamNameChange(index)}
                                 />
-                                <span>{team.qLeft} questions left</span>
+                                <span>{team.qLeft} questions</span>
                                 <span>{team.timeLeft + "s"}</span>
                             </Card>
                         ), <p key="n" style={{ textAlign: "center" }}>Words and stuff here</p>]
