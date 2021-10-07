@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/qtimer/static/css/main.1e7f8905.chunk.css",
+    "main.js": "/qtimer/static/js/main.e6037432.chunk.js",
+    "main.js.map": "/qtimer/static/js/main.e6037432.chunk.js.map",
+    "runtime-main.js": "/qtimer/static/js/runtime-main.0ff6087d.js",
+    "runtime-main.js.map": "/qtimer/static/js/runtime-main.0ff6087d.js.map",
+    "static/js/2.608e9bd4.chunk.js": "/qtimer/static/js/2.608e9bd4.chunk.js",
+    "static/js/2.608e9bd4.chunk.js.map": "/qtimer/static/js/2.608e9bd4.chunk.js.map",
+    "static/js/3.1646ec95.chunk.js": "/qtimer/static/js/3.1646ec95.chunk.js",
+    "static/js/3.1646ec95.chunk.js.map": "/qtimer/static/js/3.1646ec95.chunk.js.map",
+    "index.html": "/qtimer/index.html",
+    "static/css/main.1e7f8905.chunk.css.map": "/qtimer/static/css/main.1e7f8905.chunk.css.map",
+    "static/js/2.608e9bd4.chunk.js.LICENSE.txt": "/qtimer/static/js/2.608e9bd4.chunk.js.LICENSE.txt",
+    "static/media/chime.2e8dd27a.wav": "/qtimer/static/media/chime.2e8dd27a.wav",
+    "static/media/socrates.0f137ab9.png": "/qtimer/static/media/socrates.0f137ab9.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.0ff6087d.js",
+    "static/js/2.608e9bd4.chunk.js",
+    "static/css/main.1e7f8905.chunk.css",
+    "static/js/main.e6037432.chunk.js"
+  ]
+}
