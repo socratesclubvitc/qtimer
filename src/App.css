@@ -1,22 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap');
+
+:root {
+  --xiketic: #17111C;
+  --orange-soda: #E45C3A;
+  --sandy-brown: #F39B53;
+  --orange: #FB8500;
+  --smoky-black: #130A04;
+  --orange-foam: #F38C72;
+}
+
+body, html {
+  height: 100%;
+  background-color: var(--sandy-brown);
+  color: #130A04;
+  font-family: 'Atkinson Hyperlegible', sans-serif;
+}
+
 .card {
   padding: 1em;
   border: 1px solid black;
   box-shadow: 2px 3px 0px black;
-  margin: 0em 0em 0.5em;
+  margin: 0.75em 0em 0.75em;
   
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
   align-items: center;
+
+  background-color: var(--orange-soda);
 }
 
 .card > * {
   margin: 0 0.5em 0;
+  user-select: none;
 }
 
 .button {
   border: 1px solid black;
+  border-radius: 0.25rem;
   box-shadow: 2px 3px 0px black;
+  min-width: 2em;
+
+  background-color: var(--orange-foam);
   
   padding: 0.2em;
   text-align: center;
@@ -43,26 +68,64 @@
   margin-top: 0.3em;
 }
 
+.question-buttons > .button {
+  min-width: fit-content!important;
+}
+
 .question-buttons > * {
   width: 1em;
 }
 
 main {
+  height: 100%;
   display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: stretch;
-
-  margin: 1em;
+  flex-direction: column;
 }
 
 section {
   display: flex; 
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  margin: 1em;
 }
 
 button#lock {
-  position: absolute;
-  top: 5px;
-  left: 5px;
+  position: sticky;
+  margin-top: 1em;
+  top: 1em;
+  left: 1em;
+  width: fit-content;
+}
+
+input[type="text"] {
+  border: 1px solid transparent;
+  border-radius: .25rem;
+  width: 8rem;
+}
+
+nav {
+  height: 4.5rem;
+  background-color: var(--xiketic);
+
+  display: flex;
+  align-items: center;
+  color: var(--orange-soda);
+
+  padding: 0.5em 1em 0.5em;
+}
+
+nav > * {
+  font-weight: bold;
+  margin: 0 0.25em 0;
+}
+
+#logo {
+  width: 3em;
+  height: 3em;
+}
+
+#logo:hover {
+  filter: brightness(150%)
 }

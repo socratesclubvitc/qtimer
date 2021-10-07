@@ -1,6 +1,7 @@
 import { Component } from 'react';
 import chime from './chime.wav';
 import './App.css';
+import socratesIcon from './socrates.png';
 
 function Card(props) {
     return (
@@ -122,14 +123,6 @@ class App extends Component {
             if (this.state.teams[index].timeLeft === 0) {
                 this.resetTimer(index);
                 this.playChime();
-                this.setState((state, props) => {
-                    let teams = state.teams;
-                    teams[index].qLeft -= 1;
-                    return {
-                        ...state,
-                        teams: teams
-                    }
-                })
             } else {
                 this.setState((state, props) => {
                     let teams = state.teams;
@@ -172,6 +165,12 @@ class App extends Component {
     render() {
         return (
             <main>
+                <nav>
+                    <a href="https://socratesclubvitc.github.io">
+                        <img id="logo" src={socratesIcon} alt="logo" />
+                    </a>
+                    <h2>Socrates Club VITC</h2>
+                </nav>
                 <button id="lock" className="button" onClick={this.toggleLock}>Lock</button>
                 <section>
                     {
@@ -182,32 +181,33 @@ class App extends Component {
                                     value={this.state.teams[index].teamName}
                                     onChange={this.handleTeamNameChange(index)}
                                 />
-                                <span>{team.qLeft} questions left</span>
+                                <span>{team.qLeft} questions</span>
                                 <span>{team.timeLeft + "s"}</span>
                             </Card>
                         ), <p key="n" style={{ textAlign: "center" }}>Words and stuff here</p>]
                     }
 
                     {
-                        this.state.locked && [...this.state.teams.filter(team => team.teamName.trim().length > 0).map(
+                        this.state.locked && [...this.state.teams.map(
                             (team, index) => {
-                                return (
-                                    <Card key={index}>
-                                        <span>{team.teamName}</span>
-                                        <span className="questions">
-                                            {team.qLeft} left
-                                            <span className="question-buttons">
-                                                <Button onClick={this.deductQuestion(index)}>-</Button>
-                                                <Button onClick={this.addQuestion(index)}>+</Button>
+                                if (team.teamName.trim().length > 0)
+                                    return (
+                                        <Card key={index}>
+                                            <span>{team.teamName}</span>
+                                            <span className="questions">
+                                                {team.qLeft} left
+                                                <span className="question-buttons">
+                                                    <Button onClick={this.deductQuestion(index)}>-</Button>
+                                                    <Button onClick={this.addQuestion(index)}>+</Button>
+                                                </span>
                                             </span>
-                                        </span>
-                                        <Button onClick={this.manipulateTimer(index)}>
-                                            {team.timeLeft <= 10 && <span style={{ color: "red" }}>{team.timeLeft + "s"}</span>}
-                                            {team.timeLeft > 10 && team.timeLeft + "s"}
-                                        </Button>
-                                        <Button onClick={() => { this.resetTimer(index) }}>Reset</Button>
-                                    </Card>
-                                );
+                                            <Button onClick={this.manipulateTimer(index)}>
+                                                {team.timeLeft <= 10 && <span style={{ color: "red" }}>{team.timeLeft + "s"}</span>}
+                                                {team.timeLeft > 10 && team.timeLeft + "s"}
+                                            </Button>
+                                            <Button onClick={() => { this.resetTimer(index) }}>Reset</Button>
+                                        </Card>
+                                    );
                             }
                         ), <p style={{ textAlign: "center" }}>Words and stuff here</p>]
                     }
