@@ -33,7 +33,7 @@ class App extends Component {
                 }
             ],
             locked: false,
-            footerText: ""
+            footer: ""
         }
 
         this.handleTeamNameChange = this.handleTeamNameChange.bind(this);
@@ -49,6 +49,8 @@ class App extends Component {
         this.manipulateTimer = this.manipulateTimer.bind(this);
 
         this.toggleLock = this.toggleLock.bind(this);
+
+        this.handleFooterChange = this.handleFooterChange.bind(this);
 
         this.playChime = () => {
             let track = new Audio(chime);
@@ -77,6 +79,13 @@ class App extends Component {
                 }
             })
         })
+    }
+
+    handleFooterChange(event) {
+        this.setState((state, props) => ({
+            ...state,
+            footer: event.target.value
+        }))
     }
 
     deductQuestion(index) {
@@ -184,7 +193,7 @@ class App extends Component {
                                 <span>{team.qLeft} questions</span>
                                 <span>{team.timeLeft + "s"}</span>
                             </Card>
-                        ), <p key="n" style={{ textAlign: "center" }}>Words and stuff here</p>]
+                        ), <textarea key="n" onChange={this.handleFooterChange}>{this.state.question}</textarea>]
                     }
 
                     {
@@ -209,7 +218,7 @@ class App extends Component {
                                         </Card>
                                     );
                             }
-                        ), <p style={{ textAlign: "center" }}>Words and stuff here</p>]
+                        ), <p style={{ textAlign: "center" }}>{this.state.footer}</p>]
                     }
                 </section>
             </main>
